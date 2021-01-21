@@ -1,5 +1,5 @@
 /* 
-*  *note1 = we store the pointer of our last element, due
+*  *note = we store the pointer of our last element, due
 *           in languages like JS, with gargabe collector
 *           if you don't store the reference, 
 *           it will get sweep, from memory.
@@ -27,7 +27,7 @@ class Stack {
       this.bottom = newNode
       this.top = newNode
     } else {
-      const holdingPointer = this.top // *note1
+      const holdingPointer = this.top // *note
       this.top = newNode
       this.top.next = holdingPointer
     }
