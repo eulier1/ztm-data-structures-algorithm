@@ -5,9 +5,18 @@ class Graph {
     }; 
   } 
   addVertex(node)  { 
+    const newNode = node
+    if(!this.adjacentList[node]) {
+      this.adjacentList[node] = []
+      this.numberOfNodes++
+    }
   } 
   addEdge(node1, node2) { 
     //undirected Graph 
+    if (this.adjacentList[node1] && this.adjacentList[node2]) {
+      this.adjacentList[node1].push(node2) 
+      this.adjacentList[node2].push(node1)
+    }
   } 
   showConnections() { 
     const allNodes = Object.keys(this.adjacentList); 
