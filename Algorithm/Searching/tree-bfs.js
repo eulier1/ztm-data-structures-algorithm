@@ -162,6 +162,22 @@ class BinarySearchTree {
     
     return this.BreadFirstSearchR(queue, list)
   }
+  DFSPreOrder() {
+    return traverseInOrder(this.root, [])
+  }
+  DFSInOrder() {}
+  DFSPostOrder() {}
+}
+
+function traverseInOrder(node, list) {
+  if (node.left) {
+    traverseInOrder(node.left, list)
+  }
+  list.push(node.value)
+  if (node.right) {
+    traverseInOrder(node.right, list)
+  }
+  return list
 }
 
 const tree = new BinarySearchTree()
@@ -174,7 +190,7 @@ tree.insert(15)
 tree.insert(1)
 
 console.log("BFS", tree.BreadFirstSearchR([tree.root], []))
-
+console.log("DFS", tree.DFSPreOrder())
 //     9
 //  4     20
 //1  6  15  170
